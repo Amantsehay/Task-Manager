@@ -1,7 +1,6 @@
 Task Manager App
 ## Installation and Setup
-
-1. Install all the dependencies
+1. Install all the dependencies in the main directory; there's no need to run the backend and frontend separately.
 
    ```sh
    npm run install-all
