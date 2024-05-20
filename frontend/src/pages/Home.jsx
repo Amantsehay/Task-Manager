@@ -1,40 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Tasks from '../components/Tasks';
 import MainLayout from '../layouts/MainLayout';
 
 const Home = () => {
-
   const authState = useSelector(state => state.authReducer);
   const { isLoggedIn } = authState;
 
   useEffect(() => {
-    document.title = authState.isLoggedIn ? `${authState.user.name}'s tasks` : "Task Manager";
+    document.title = authState.isLoggedIn ? `${authState.user.name}'s Tasks` : "Task Manager";
   }, [authState]);
 
-
-
   return (
-    <>
-      <MainLayout>
+    <MainLayout>
+      <div className="container mx-auto">
         {!isLoggedIn ? (
-          <div className='bg-primary text-white h-[40vh] py-8 text-center'>
-            <h1 className='text-2xl'> Welcome to Task Manager App</h1>
-            <Link to="/signup" className='mt-10 text-xl block space-x-2 hover:space-x-4'>
-              <span className='transition-[margin]'>Join now to manage your tasks</span>
-              <span className='relative ml-4 text-base transition-[margin]'><i className="fa-solid fa-arrow-right"></i></span>
-            </Link>
+          <div className=' text-white rounded-lg py-8 text-center'>
+            <h1 className='text-4xl font-bold mb-4'>Your Task Manager</h1>
+            <p className='text-lg mb-8'>Organize your tasks with ease</p>
+            <Link to="/signup" className='btn-secondary text-yellow-800 text-lg'>Join Now</Link>
           </div>
         ) : (
-          <>
-            <h1 className='text-lg mt-8 mx-8 border-b border-b-gray-300'>Welcome {authState.user.name}</h1>
-            <Tasks />
-          </>
+          
+          <div>
+            <h1 className='text-lg font-bold mt-8 mb-4 text-center'>Welcome, {authState.user.name}</h1>
+            <Tasks/>
+          </div>
         )}
-      </MainLayout>
-    </>
-  )
-}
+      </div>
+    </MainLayout>
+  );
+};
 
-export default Home
+export default Home;

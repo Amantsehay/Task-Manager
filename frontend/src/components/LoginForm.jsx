@@ -78,7 +78,7 @@ const LoginForm = ({ redirectUrl }) => {
             <button className='bg-primary text-white px-4 py-2 font-medium hover:bg-primary-dark' onClick={handleSubmit}>Submit</button>
 
             <div className='pt-4'>
-              <Link to="/signup" className='text-blue-400'>Don't have an account? Signup here</Link>
+              <Link to="/signup" className='text-blue-500'>Don't have an account?     Signup here</Link>
             </div>
           </>
         )}
